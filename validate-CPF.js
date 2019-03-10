@@ -9,6 +9,14 @@ function validateCPF(cpfOriginal) {
         return false;
     }
     var cpfOnlyNumberArray = cpfOnlyNumber.split('');
+    //Verificar se todos os números são iguais
+    var allIsEqual = true;
+    for(var i = 0; i<10; i++){
+        if(cpfOnlyNumberArray[i]!=cpfOnlyNumberArray[i+1]){allIsEqual=false;}
+    }
+    if(allIsEqual===true){
+        return false;
+    }
     //considering each number as a alphabetical letter
     var j = cpfOnlyNumberArray[9];
     var k = cpfOnlyNumberArray[10];
