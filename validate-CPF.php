@@ -5,9 +5,16 @@
  *
  * @author Heliton Martins <helitonmrf@gmai.com>
  */
-function validateCPF($cpfOriginal){
+public function validateCPF($cpfOriginal){
     $cpfOnlyNumber = preg_replace('/[^\d]/','',$cpfOriginal);
     if(strlen((string) $cpfOnlyNumber) !== 11){
+        return false;
+    }
+    $allIsEqual = true;
+    for($i = 0; $i<10; $i++){
+        if($cpfOnlyNumber[$i]!=$cpfOnlyNumber[$i+1]){$allIsEqual=false;}
+    }
+    if($allIsEqual===true){
         return false;
     }
     $j = $cpfOnlyNumber[9];
@@ -33,7 +40,5 @@ function validateCPF($cpfOriginal){
 
     if($k != $kCalculated){
         return false;
-    }else{
-        return true;
-    }
+    }else{return true;}
 }
