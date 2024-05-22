@@ -1,3 +1,4 @@
+<?php
 /**
  * Verifica a validade de um número de CPF por meio dos dígitos de verificação.
  * @param  mixed $cpfOriginal O CPF a ser validado.
